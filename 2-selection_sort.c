@@ -9,28 +9,30 @@
  */
 void selection_sort(int *array, size_t size)
 {
-	size_t i, j, i_idx, j_idx;
+	size_t i, j, j_idx;
 	int tmp;
 
 	i = 0;
 	while (i < size)
 	{
 		j = i;
+		j_idx = i;
 		while (j < size)
 		{
-			tmp = array[i];
-			if (tmp > array[j])
+			if (array[j_idx] > array[j])
 			{
-				tmp = array[j];
-				i_idx = i;
 				j_idx = j;
 			}
 			j++;
 		}
+		if (i != j_idx)
+		{
+			tmp = array[j_idx];
+			array[j_idx] = array[i];
+			array[i] = tmp;
+			print_array(array, size);
+		}
 		i++;
-		array[j_idx] = array[i_idx];
-		array[i_idx] = tmp;
-		print_array(array, size);
 	}
 }
 
