@@ -11,6 +11,9 @@ void selection_sort(int *array, size_t size)
 {
 	size_t tmp, i, j;
 
+	if (array == NULL)
+		return;
+
 	i = 0;
 	while (i < size)
 	{
@@ -22,11 +25,11 @@ void selection_sort(int *array, size_t size)
 				tmp = array[i];
 				array[i] = array[j];
 				array[j] = tmp;
-				print_array(array, size);
 			}
 			j++;
 		}
 		i++;
+		print_array(array, size);
 	}
 }
 
